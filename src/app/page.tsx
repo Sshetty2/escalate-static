@@ -1,65 +1,88 @@
 import Image from "next/image";
+import ProductCard from "@/components/ProductCard";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className="flex h-screen flex-col bg-background font-sans">
+      {/* Header */}
+      <header className="flex items-center gap-2 px-6 py-4 sm:gap-3 sm:px-8 sm:py-6">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+          src="/imgs/1.png"
+          alt="Escalate LLC Logo"
+          width={500}
+          height={500}
+          className="h-10 w-auto sm:h-14 md:h-16"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+        <Image
+          src="/imgs/3.png"
+          alt="Escalate LLC"
+          width={800}
+          height={200}
+          className="h-6 w-auto sm:h-8 md:h-10"
+        />
+      </header>
+
+      {/* Main Content */}
+      <main className="flex flex-1 flex-col items-center justify-start px-6 pt-4 sm:px-8 sm:pt-8">
+        {/* Products Section */}
+        <section className="w-full max-w-4xl">
+          <h2 className="mb-6 text-center text-xs font-semibold uppercase tracking-widest text-gray-400 sm:text-sm">
+            Products & Projects
+          </h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6">
+            <ProductCard
+              title="Radar7"
+              description="Map-first event discovery with AI-powered search"
+              imageSrc="/imgs/icon-512.png"
+              href="https://radar7.app"
+              accentColor="bg-black"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <ProductCard
+              title="Vulnerability Mitigation Assistant"
+              description="AI-powered CVE analysis generating actionable mitigation strategies with prioritized remediation steps"
+              imageSrc="/imgs/vulnerability_mitigation"
+              href="https://vulnerability-mitigation-assistant.onrender.com"
+              accentColor="bg-escalate-blue"
+            />
+            <ProductCard
+              title="CPE Matching Agent"
+              description="LangGraph-based agent matching software configs to CPEs via vector search and LLM reasoning"
+              imageSrc="/imgs/cpe_matching_agent"
+              accentColor="bg-escalate-blue"
+            />
+          </div>
+        </section>
       </main>
+
+      {/* Founder Section */}
+      <section className="border-t border-gray-100 px-6 py-4 sm:px-8 sm:py-6">
+        <div className="mx-auto flex max-w-4xl items-center gap-4 sm:gap-5">
+          <Image
+            src="/imgs/sachit-shetty.jpg"
+            alt="Sachit Shetty"
+            width={80}
+            height={80}
+            className="h-14 w-14 flex-shrink-0 rounded-full object-cover sm:h-16 sm:w-16"
+          />
+          <div className="min-w-0">
+            <h3 className="text-sm font-semibold text-gray-900 sm:text-base">
+              Sachit Shetty
+            </h3>
+            <p className="text-xs text-escalate-blue sm:text-sm">Founder</p>
+            <p className="mt-1 text-xs leading-relaxed text-gray-600 sm:text-sm">
+              Full-stack engineer passionate about AI technologies—LLMs, RAG, vector databases, and agentic AI.
+              Outside of code, I explore philosophy, particularly metaphysics and epistemology.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-100 px-6 py-3 sm:px-8">
+        <p className="text-center text-xs text-gray-400">
+          &copy; 2025 - 2026 Escalate LLC. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 }
